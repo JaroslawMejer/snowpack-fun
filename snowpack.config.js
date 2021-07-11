@@ -7,7 +7,8 @@ module.exports = {
   },
   plugins: [
       "@snowpack/plugin-sass",
-      '@snowpack/plugin-react-refresh'
+      '@snowpack/plugin-react-refresh',
+      '@snowpack/plugin-typescript',
   ],
   routes: [
     /* Enable an SPA Fallback in development: */
@@ -24,6 +25,6 @@ module.exports = {
     /* ... */
   },
   buildOptions: {
-    /* ... */
+    jsxInject: "import React from 'react'"
   },
 };
