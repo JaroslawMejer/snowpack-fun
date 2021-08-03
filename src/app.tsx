@@ -1,15 +1,19 @@
+import React, { useState, useEffect } from 'react';
+import logo from './img/logo.png';
 import './app.sass';
-import { Cell } from './components/Cell';
-import { Table } from './components/Table';
 
 export const App = () => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const timer = setTimeout(() => setCount(count + 1), 1000);
+    return () => clearTimeout(timer);
+  }, [count, setCount]);
   return (
     <div className='App'>
-      <Table>
-        <Cell elIndex={1} />
-        <Cell elIndex={2} />
-        <Cell elIndex={2} />
-      </Table>
+      <img src={logo} />
+      <p>
+        Page has been open for <code>{count}</code> seconds.
+      </p>
     </div>
   );
 };
